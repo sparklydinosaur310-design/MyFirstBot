@@ -1,3 +1,4 @@
+const axios = require("axios");
 require("dotenv").config();
 const { App } = require("@slack/bolt");
 
@@ -12,6 +13,27 @@ app.command("/myfirstbot-ping", async ({ command, ack, respond }) => {
   await ack();
   const latency = Date.now() - start;
   await respond({ text: `Pong!\nLatency: ${latency}ms` });
+});
+
+app.command("/myfirstbot-help", async ({ ack, respond }) => {
+  await ack();
+  await respond({
+    text:
+`Available Commands:
+/myfirstbot-ping - Check bot latency
+/myfirstbot-catfact - Get a cat fact`
+  });
+});
+
+app.command("/myfirstbot-catfact", async ({ ack, respond }) => {
+  await ack();
+  try {
+    const response = await axios.get("https://catfact.ninja/fact");
+    await respond({ text: `Cat Fact:\n${response.data.fact}` });
+  } catch (err) {
+    console.error("catfact error:", err.message);
+    await respond({ text: "Failed to fetch a cat fact." });
+  }
 });
 
 (async () => {
