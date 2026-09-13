@@ -1,5 +1,13 @@
 # MyFirstBot
 I made a slack bot that is definitely NOT slacking off as it is working 24/7. I built this bot with Node.js and currently has 3 different commands that you can run effortlessly. I spent just around less than an hour fixing the code and making sure it worked. I hope you can try it out and have fun!❤️(●'◡'●)
+
+## Commands
+/myfirstbot-ping
+
+/myfirstbot-joke
+
+/myfirstbot-catfact
+
 ## Bot Demonstration 
 <img width="1919" height="875" alt="Screenshot 2026-09-12 000921" src="https://github.com/user-attachments/assets/0b910c70-5a7a-456e-9d46-5a3bf5fa1c1e" />
 
